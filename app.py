@@ -360,7 +360,10 @@ def analisis_page():
                 <h3>Peringkat Negara-negara Berdasarkan Indeks Kebahagiaan</h3>
             </div>
             """, unsafe_allow_html=True)
-        st.write("""Negara-negara dengan **indeks kebahagiaan mulai dari 6 ke atas** dapat dikategorikan sebagai negara berpenduduk bahagia.""")
+        st.markdown("""
+            <p>Negara-negara dengan <b>indeks kebahagiaan mulai dari 6 ke atas</b> dapat dikategorikan sebagai negara berpenduduk bahagia</p>
+        """, unsafe_allow_html=True)
+        
         bar_chart_country(region_whr_df)
 
         bar_chart_region(region_whr_df)

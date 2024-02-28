@@ -311,16 +311,15 @@ def pengantar_page():
         </div>
     """, unsafe_allow_html=True)
     st.write("""World Happiness Report adalah sebuah publikasi yang diinisiasi oleh Gallup, Oxford Wellbeing Research Centre, 
-             the UN Sustainable Development Solutions Network PBB, dan WHR Editorial Boad. Publikasi ini dibuat di bawah kendali 
-             editorial Dewan Editorial WHR. World Happiness Report mencerminkan permintaan dunia untuk lebih memperhatikan 
+             the UN Sustainable Development Solutions Network, dan WHR Editorial Board. Publikasi ini dibuat di bawah kendali 
+             Dewan Editorial WHR. World Happiness Report mencerminkan permintaan dunia untuk lebih memperhatikan 
              kebahagiaan dan kesejahteraan sebagai kriteria kebijakan pemerintah. Laporan ini mengulas keadaan kebahagiaan 
              di dunia saat ini dan menjelaskan variasi kebahagiaan pribadi dan nasional secara saintifik.""")
     st.write("""Tujuan dari menganalisis publikasi ini adalah untuk mengetahui bagaimana indeks kebahagiaan suatu negara yang 
              direpresentasikan oleh **ladder score** berhubungan dengan variabel-variabel seperti letak geografis, PDB per kapita, dukungan sosial, 
              harapan hidup sehat, kebebasan membuat pilihan dalam hidup, kemurahan hati, dan tingkat kepercayaan terhadap pemerintah. 
              Insights  yang diperoleh dari analisis publikasi ini diharapkan akan dapat membantu pemerintah dalam menentukan 
-             kebijakan-kebijakan yang berorientasi ke arah peningkatan kebahagiaan masyarakat. Di bawah ini adalah dataset World 
-             Happiness Report 2023.""")
+             kebijakan-kebijakan yang berorientasi ke arah peningkatan kebahagiaan masyarakat.""")
 ##    
 def dataset_page():
     st.markdown("""
@@ -361,7 +360,7 @@ def analisis_page():
                 <h3>Peringkat Negara-negara Berdasarkan Indeks Kebahagiaan</h3>
             </div>
             """, unsafe_allow_html=True)
-        st.write("""Negara-negara dengan <strong>indeks kebahagiaan mulai dari 6 ke atas</strong> dapat dikategorikan sebagai negara berpenduduk bahagia.""")
+        st.write("""Negara-negara dengan **indeks kebahagiaan mulai dari 6 ke atas** dapat dikategorikan sebagai negara berpenduduk bahagia.""")
         bar_chart_country(region_whr_df)
 
         bar_chart_region(region_whr_df)
@@ -452,7 +451,7 @@ def analisis_page():
         memiliki kemiripan morfologi geografis dengan wilayah-wilayah yang ada di benua Afrika tetapi semua wilayah itu 
         termasuk ke dalam wilayah negara-negara berpenduduk bahagia.
         </p>
-        <p> Berdasarkan fakta di atas, saya menerima hipotesis alternatif yang menunjukkan bahwa tidak ada hubungan positif 
+        <p> Berdasarkan fakta di atas, saya menerima hipotesis alternatif yang menyatakan bahwa tidak ada hubungan positif 
         antara faktor geografis dengan indeks kebahagian suatu negara. </p> 
         
     """, unsafe_allow_html=True)   

@@ -448,7 +448,7 @@ def analisis_page():
             bahagia di seluruh dunia menggunakan bahasa yang berasal dari benua Eropa. 
             Selain di negara-negara Eropa, dari total 11 negara di Amerika Latin dan Karibia dalam publikasi ini, 
             10 di antaranya menggunakan bahasa Spanyol, sementara Brazil menggunakan bahasa Portugis. Negara-negara bagian 
-            di Amerika Utara seperti Quebec dan Louisiana menggunakan bahasa Prancis.s
+            di Amerika Utara seperti Quebec dan Louisiana menggunakan bahasa Prancis.
             Di Asia Tenggara, negara seperti Singapura dan Malaysia menggunakan bahasa Inggris.
         </p>
     
@@ -467,7 +467,8 @@ def analisis_page():
         termasuk ke dalam wilayah negara-negara berpenduduk bahagia.
         </p>
         <p> Berdasarkan fakta di atas, saya menerima hipotesis alternatif yang menyatakan bahwa tidak ada hubungan positif 
-        antara faktor geografis dengan indeks kebahagian suatu negara. </p> 
+        antara faktor geografis dengan indeks kebahagian suatu negara dan saya menerima hipotesis yang menyatakan bahwa ada
+        lebih dari satu faktor yang memengaruhi indeks kebahagian penduduk suatu negara. </p> 
         
     """, unsafe_allow_html=True)   
 ##    

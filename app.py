@@ -400,11 +400,11 @@ def analisis_page():
         geografis(region_whr_df)
         st.markdown("""
             <p>Berdasarkan peta geografis di atas, wilayah dengan warna gelap (indeks kebahagiaan tinggi) dapat ditemukan di
-            belahan bumi selatan dan utara. <br/>
+            belahan bumi selatan dan utara, di bagian timur dan barat. <br/>
             Wilayah Oceania tampak bahagia secara menyeluruh. <br/>
             Wilayah Kanada tampak paling berbahagia di benua Amerika. <br/>
             Wilayah Eropa Utara tampak paling berbahagia di benua Eropa. <br/>
-            Sebagian wilayah Asia Tengah tampak paling berbahagia di benua Asia. <br/><br/></p>
+            Sebagian wilayah Asia Barat tampak paling berbahagia di benua Asia. <br/><br/></p>
             """, unsafe_allow_html=True
         )
 
@@ -444,10 +444,12 @@ def analisis_page():
         </div>
     """, unsafe_allow_html=True)
         st.markdown("""
-        <p> Informasi yang tersirat dalam dataset World Happiness Report 2023 menunjukkan bahwa lebih dari 80% negara berpenduduk 
+        <p> Informasi dalam dataset World Happiness Report 2023 menyiratkan bahwa lebih dari 80% negara berpenduduk 
             bahagia di seluruh dunia menggunakan bahasa yang berasal dari benua Eropa. 
-            Sebagai contoh, selain negara-negara Eropa, dari total 11 negara di Amerika Latin dan Karibia, 10 di antaranya menggunakan bahasa Spanyol, 
-            sementara Brazil menggunakan bahasa Portugis. Di Asia Tenggara, negara seperti Singapura dan Malaysia menggunakan bahasa Inggris.
+            Selain di negara-negara Eropa, dari total 11 negara (dalam penelitian ini) di Amerika Latin dan Karibia, 
+            10 di antaranya menggunakan bahasa Spanyol, sementara Brazil menggunakan bahasa Portugis. Negara-negara bagian 
+            di Amerika Utara seperti Quebec dan Louisiana menggunakan bahasa Prancis,
+            Di Asia Tenggara, negara seperti Singapura dan Malaysia menggunakan bahasa Inggris.
         </p>
     
         <p>Secara umum penduduk suatu negara merasa bahagia jika mereka hidup di lingkungan yang suportif, 

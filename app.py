@@ -446,7 +446,7 @@ def analisis_page():
         st.markdown("""
         <p> Informasi dalam dataset World Happiness Report 2023 menyiratkan bahwa lebih dari 80% negara berpenduduk 
             bahagia di seluruh dunia menggunakan bahasa yang berasal dari benua Eropa. 
-            Selain di negara-negara Eropa, dari total 11 negara (dalam penelitian ini) di Amerika Latin dan Karibia, 
+            Selain di negara-negara Eropa, dari total 11 negara, dalam penelitian ini, di Amerika Latin dan Karibia, 
             10 di antaranya menggunakan bahasa Spanyol, sementara Brazil menggunakan bahasa Portugis. Negara-negara bagian 
             di Amerika Utara seperti Quebec dan Louisiana menggunakan bahasa Prancis,
             Di Asia Tenggara, negara seperti Singapura dan Malaysia menggunakan bahasa Inggris.

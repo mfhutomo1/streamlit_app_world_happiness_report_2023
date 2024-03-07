@@ -33,8 +33,10 @@ else:
 by_region_df = pd.read_csv('dataset_pelengkap/continents2.csv')
 by_region_df = by_region_df[['name', 'alpha-2', 'region', 'sub-region']]
 by_region_df.rename(columns={'name': 'Country name', 'alpha-2': 'Country code', 'region': 'Region', 'sub-region': 'Sub-region'}, inplace=True)
+
 #merge dataset1 dan dataset2
 region_whr_df = by_region_df.merge(whr_df, on= 'Country name', how = 'right')
+
 # cleaning dataset
 null_value = region_whr_df['Healthy life expectancy'].isnull()
 zero_indices = region_whr_df[null_value].index
@@ -340,7 +342,9 @@ def hipotesis_page():
         </div>
         <p>Berikut ini adalah hipotesis yang diajukan: <br/>
             (H0) = Ada hubungan positif antara faktor geografis dan indeks kebahagiaan suatu negara. <br/>
+                   Ada lebih dari satu faktor yang memengaruhi indeks kebahagiaan suatu negara. <br/>
             (Ha) = Tidak ada hubungan positif antara faktor geografis dan indeks kebahagiaan suatu negara. <br/>
+                   Hanya ada satu faktor yang memengaruhi indeks kebahagiaan suatu negara.
         <p/>
     """, unsafe_allow_html=True)
     

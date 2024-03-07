@@ -340,11 +340,15 @@ def hipotesis_page():
         <div style="text-align:center">
             <h2>Hipotesis</h2>
         </div>
-        <p>Berikut ini adalah hipotesis yang diajukan: <br/>
-            (H0) = Ada hubungan positif antara faktor geografis dan indeks kebahagiaan suatu negara. <br/>
+        <p>Berikut ini adalah hipotesis yang diajukan, <br/>
+            (H0): <br/>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   Ada hubungan positif antara faktor geografis dan indeks kebahagiaan suatu negara. <br/>
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                    Ada lebih dari satu faktor yang memengaruhi indeks kebahagiaan suatu negara. <br/>
-            (Ha) = Tidak ada hubungan positif antara faktor geografis dan indeks kebahagiaan suatu negara. <br/>
+            (Ha): <br/>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   Tidak ada hubungan positif antara faktor geografis dan indeks kebahagiaan suatu negara. <br/>
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                    Hanya ada satu faktor yang memengaruhi indeks kebahagiaan suatu negara.
         <p/>

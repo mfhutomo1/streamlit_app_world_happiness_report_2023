@@ -190,7 +190,7 @@ def box_plot(region_whr_df):
   st.pyplot()
 
 
-#FUNGSI GEOGRAFIS
+# FUNGSI GEOGRAFIS
 def geografis(region_whr_df):
     world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
     # Mengganti 'United States' dengan 'United States of America'

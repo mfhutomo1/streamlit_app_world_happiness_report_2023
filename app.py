@@ -5,7 +5,8 @@ import io
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import geopandas as gpd
+# import geopandas as gpd
+import plotly.express as px
 
 st.set_page_config(
     page_title="World Happiness Report 2023"
@@ -189,15 +190,34 @@ def box_plot(region_whr_df):
 
 
   ## FUNGSI GEOGRAFIS
+# def geografis(region_whr_df):
+#     world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+#     for_plotting = world.merge(region_whr_df, left_on='name', right_on='Country name')
+#     st.pyplot(
+#         for_plotting.plot(column='Ladder score', cmap='YlGnBu', figsize=(15, 10), k=3, legend=True,
+#                           legend_kwds={'label': "Happiness Score Per Country", 'orientation': "horizontal"},
+#                           edgecolor='gray',
+#                           missing_kwds={'color': 'lightgrey'}).get_figure()
+#     )
 def geografis(region_whr_df):
-    world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
-    for_plotting = world.merge(region_whr_df, left_on='name', right_on='Country name')
-    st.pyplot(
-        for_plotting.plot(column='Ladder score', cmap='YlGnBu', figsize=(15, 10), k=3, legend=True,
-                          legend_kwds={'label': "Happiness Score Per Country", 'orientation': "horizontal"},
-                          edgecolor='gray',
-                          missing_kwds={'color': 'lightgrey'}).get_figure()
-    )
+
+    # Define custom colors for the color scale
+    custom_color_scale = [
+        (0.0, "#ADD8E6"),   # Light Blue
+        (0.4, "#4169E1"),   # Royal Blue
+        (0.6, "#0000CD"),   # Medium Blue
+        (0.8, "#000080"),   # Dark Blue
+        (1.0, "#191970")    # Midnight Blue
+    ]
+
+    fig = px.choropleth(region_whr_df, locations="Country name", locationmode='country names',
+                        color="Ladder score", hover_name="Country name",
+                        title="World Happiness Report: Ladder score by country",
+                        color_continuous_scale=custom_color_scale)
+
+    # Menampilkan gambar menggunakan st.plotly_chart()
+    st.plotly_chart(fig)
+
     
     
 def scatter_plots(region_whr_df):
@@ -384,7 +404,8 @@ def analisis_page():
                 29 negara dari benua Eropa (53%), <br/>
                 13 negara dari benua Amerika (23.4%), <br/>
                 11 negara dari benua Asia (20%), <br/>
-                2 negara dari Oceania (3.6%), yaitu Australia dan New Zealand. <br/>
+                2 negara dari Oceania (3.6%), yaitu Australia dan New Zealand, dan  <br/>
+                0 negara dari benua Afrika yang berpenduduk bahagia berdasarkan definisi World Happiness Report 2023 <br/>
             </p>
         """, unsafe_allow_html=True)
 
@@ -401,7 +422,7 @@ def analisis_page():
         st.markdown("""
             <p>Berdasarkan peta geografis di atas, wilayah dengan warna gelap (indeks kebahagiaan tinggi) dapat ditemukan di
             belahan bumi selatan dan utara, di bagian timur dan barat. <br/>
-            Wilayah Oceania tampak bahagia secara menyeluruh. <br/>
+            Wilayah Australia dan New Zealand tampak bahagia di Oceania. <br/>
             Wilayah Kanada tampak paling berbahagia di benua Amerika. <br/>
             Wilayah Eropa Utara tampak paling berbahagia di benua Eropa. <br/>
             Sebagian wilayah Asia Barat tampak paling berbahagia di benua Asia. <br/><br/></p>
@@ -467,7 +488,7 @@ def analisis_page():
         termasuk ke dalam wilayah negara-negara berpenduduk bahagia.
         </p>
         <p> Berdasarkan fakta di atas, saya menerima hipotesis alternatif yang menyatakan bahwa tidak ada hubungan positif 
-        antara faktor geografis dengan indeks kebahagian suatu negara dan saya menerima hipotesis yang menyatakan bahwa ada
+        antara faktor geografis dengan indeks kebahagian suatu negara dan saya menerima hipotesis nol yang menyatakan bahwa ada
         lebih dari satu faktor yang memengaruhi indeks kebahagian penduduk suatu negara. </p> 
         
     """, unsafe_allow_html=True)   

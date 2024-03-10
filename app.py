@@ -6,7 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 # import geopandas as gpd
-import plotly.express as px
+import plotly as px
 
 st.set_page_config(
     page_title="World Happiness Report 2023"
@@ -210,7 +210,7 @@ def geografis(region_whr_df):
         (1.0, "#191970")    # Midnight Blue
     ]
 
-    fig = px.choropleth(region_whr_df, locations="Country name", locationmode='country names',
+    fig = px.express.choropleth(region_whr_df, locations="Country name", locationmode='country names',
                         color="Ladder score", hover_name="Country name",
                         title="World Happiness Report: Ladder score by country",
                         color_continuous_scale=custom_color_scale,

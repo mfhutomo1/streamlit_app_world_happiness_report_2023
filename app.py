@@ -6,6 +6,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import geopandas as gpd
+import plotly.express as px
+ 
 
 st.set_page_config(
     page_title="World Happiness Report 2023"
@@ -188,16 +190,25 @@ def box_plot(region_whr_df):
   st.pyplot()
 
 
-  ## FUNGSI GEOGRAFIS
+#FUNGSI GEOGRAFIS
 def geografis(region_whr_df):
     world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+    # Mengganti 'United States' dengan 'United States of America'
+    region_whr_df.loc[region_whr_df['Country name'] == 'United States', 'Country name'] = 'United States of America'
+                             
     for_plotting = world.merge(region_whr_df, left_on='name', right_on='Country name')
-    st.pyplot(
-        for_plotting.plot(column='Ladder score', cmap='YlGnBu', figsize=(15, 10), k=3, legend=True,
-                          legend_kwds={'label': "Happiness Score Per Country", 'orientation': "horizontal"},
-                          edgecolor='gray',
-                          missing_kwds={'color': 'lightgrey'}).get_figure()
-    )
+
+    # Membuat peta interaktif dengan Plotly Express
+    fig = px.choropleth(for_plotting, 
+                        locations='iso_a3', 
+                        color='Ladder score', 
+                        hover_name='Country name', 
+                        title='Happiness Score Per Country',
+                        color_continuous_scale='YlGnBu')
+    
+    # Menampilkan peta menggunakan Streamlit
+    st.plotly_chart(fig, use_container_width=True)
+
     
     
 def scatter_plots(region_whr_df):
@@ -248,42 +259,6 @@ def heatmap(region_whr_df):
   st.pyplot()
 
 
-## FUNGSI PERSENTASE BAHAGIA
-def persentase_bahagia(region_whr_df):
-    persentase_bahagia = {}
-    for subreg in region_whr_df['Sub-region'].unique():
-        subreg_df = region_whr_df[region_whr_df['Sub-region'] == subreg]
-        
-        total_records = len(subreg_df)
-        
-        bahagia_df = subreg_df[(subreg_df['Ladder score'] >= 6) & (subreg_df['Ladder score'] <= 8)]
-        
-        jumlah_bahagia = len(bahagia_df)
-        
-        if total_records != 0:
-            persentase = round((jumlah_bahagia / total_records)*100 , 2) 
-            persentase_bahagia[subreg] = persentase
-
-    subreg_df = pd.DataFrame(list(persentase_bahagia.items()), columns=['Sub-regional', 'Persentase Bahagia'])
-    subreg_df.sort_values(by='Persentase Bahagia', ascending=False, inplace=True)
-    subreg_df['Persentase Bahagia'] = subreg_df['Persentase Bahagia'].astype(str) + '%'
-    st.write("Negara-negara dengan indeks kebahagiaan (*ladder score*) lebih dari 6 dikategorikan sebagai negara berpenduduk bahagia.")
-    st.write(subreg_df)
-
-
-## FUNGSI RATA-RATA INDEKS KEBAHAGIAAN
-def rata_rata_indeks_kebahagiaan(region_whr_df):
-    condition =['Northern Europe', 'Western Europe',
-          'Australia and New Zealand', 'Northern America']
-    indicator = region_whr_df[['Sub-region','Ladder score',
-          'Logged GDP per capita', 'Social support', 'Healthy life expectancy',
-          'Freedom to make life choices', 'Generosity',
-          'Perceptions of corruption']]
-    filtered_data = indicator[indicator['Sub-region'].isin(condition)]
-    # st.write(filtered_data.groupby('Sub-region').mean())
-    st.write(filtered_data.groupby('Top Countries').mean())
-
-
 #
 def main():
     Pengantar, Dataset, Hipotesis, Analisis, Saran, Referensi = st.tabs(['Pengantar   ', 'Dataset   ', 'Hipotesis   ', 'Analisis   ', 'Saran   ', 'Referensi   '])
@@ -305,6 +280,8 @@ def main():
 
     with Referensi:
         referensi_page()
+
+
 ##
 def pengantar_page():
     st.markdown("""
@@ -384,7 +361,8 @@ def analisis_page():
                 29 negara dari benua Eropa (53%), <br/>
                 13 negara dari benua Amerika (23.4%), <br/>
                 11 negara dari benua Asia (20%), <br/>
-                2 negara dari Oceania (3.6%), yaitu Australia dan New Zealand. <br/>
+                2 negara dari Oceania (3.6%), yaitu Australia dan New Zealand, dan  <br/>
+                Sementara itu, tidak ada negara dari benua Afrika yang berpenduduk bahagia berdasarkan definisi World Happiness Report 2023 <br/>
             </p>
         """, unsafe_allow_html=True)
 
@@ -401,7 +379,7 @@ def analisis_page():
         st.markdown("""
             <p>Berdasarkan peta geografis di atas, wilayah dengan warna gelap (indeks kebahagiaan tinggi) dapat ditemukan di
             belahan bumi selatan dan utara, di bagian timur dan barat. <br/>
-            Wilayah Oceania tampak bahagia secara menyeluruh. <br/>
+            Wilayah Australia dan New Zealand tampak bahagia di Oceania. <br/>
             Wilayah Kanada tampak paling berbahagia di benua Amerika. <br/>
             Wilayah Eropa Utara tampak paling berbahagia di benua Eropa. <br/>
             Sebagian wilayah Asia Barat tampak paling berbahagia di benua Asia. <br/><br/></p>
@@ -467,7 +445,7 @@ def analisis_page():
         termasuk ke dalam wilayah negara-negara berpenduduk bahagia.
         </p>
         <p> Berdasarkan fakta di atas, saya menerima hipotesis alternatif yang menyatakan bahwa tidak ada hubungan positif 
-        antara faktor geografis dengan indeks kebahagian suatu negara dan saya menerima hipotesis yang menyatakan bahwa ada
+        antara faktor geografis dengan indeks kebahagian suatu negara dan saya menerima hipotesis nol yang menyatakan bahwa ada
         lebih dari satu faktor yang memengaruhi indeks kebahagian penduduk suatu negara. </p> 
         
     """, unsafe_allow_html=True)   

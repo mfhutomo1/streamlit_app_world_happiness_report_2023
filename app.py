@@ -200,23 +200,25 @@ def box_plot(region_whr_df):
 #                           missing_kwds={'color': 'lightgrey'}).get_figure()
 #     )
 def geografis(region_whr_df):
-
     # Define custom colors for the color scale
     custom_color_scale = [
-        (0.0, "#ADD8E6"),   # Light Blue
+        (0.0, "#FFFFE0"),   # Light Yellow
+        (0.2, "#ADD8E6"),   # Light Blue
         (0.4, "#4169E1"),   # Royal Blue
         (0.6, "#0000CD"),   # Medium Blue
         (0.8, "#000080"),   # Dark Blue
         (1.0, "#191970")    # Midnight Blue
-    ]
+        ]
 
     fig = px.choropleth(region_whr_df, locations="Country name", locationmode='country names',
                         color="Ladder score", hover_name="Country name",
                         title="World Happiness Report: Ladder score by country",
-                        color_continuous_scale=custom_color_scale)
+                        color_continuous_scale=custom_color_scale,
+                        range_color=(0, 6))  # Set range of colors from 0 to 6
 
     # Menampilkan gambar menggunakan st.plotly_chart()
     st.plotly_chart(fig)
+
 
     
     

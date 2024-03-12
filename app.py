@@ -500,9 +500,9 @@ def analisis_page():
             pertumbuhan kesejahteraan ekonomi suatu negara. 
             </li>
             <li>Tindak pidana korupsi yang terjadi di pemerintahan dan bisnis secara umum cenderung membuat masyarakat tidak bahagia</li>
-            </li> Oleh karena itu, saya menerima hipotesis nol yang menyatakan bahwa ada
+            <li> Oleh karena itu, saya menerima hipotesis nol yang menyatakan bahwa ada
             lebih dari satu faktor yang memengaruhi indeks kebahagian penduduk suatu negara. 
-            <li>
+            </li>
         </ul>
                     
         

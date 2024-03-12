@@ -540,7 +540,7 @@ def saran_page():
         <p>
             Walaupun generosity tidak berhubungan dengan tingkat kebahagiaan secara langsung, tetapi budaya generous
             harus dikembangkan sebagai upaya menciptakan lingkungan yang suportif, yang akan berdampak terhadap 
-            tingkat kebahagiaan pada akhirnya</p>
+            tingkat kebahagiaan pada akhirnya.</p>
         <p>
             Studi banding dengan negara-negara yang memiliki tingkat kebahagiaan penduduk yang tinggi perlu ditingkatkan,
             sehingga pemerintah suatu negara bisa memperoleh lebih banyak pengetahuan yang lebih aplikatif untuk diterapkan 
